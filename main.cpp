@@ -91,12 +91,6 @@ struct Horse{
     }
 } horse[128];
 
-
-
-
-void finit(){
-
-}
 void init(){
     for(int point = 0; point <= 38; point++){
         State[point].clear();
