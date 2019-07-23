@@ -3,6 +3,7 @@
  * https://www.acmicpc.net/problem/15778
  * 시작: 2019-07-24 02:00
  * 종료 : 2019-07-24 05:45
+ * https://github.com/xlrnux/boj_15778_yutnori
  */
 
 #include <cstdio>
