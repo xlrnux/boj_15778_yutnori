@@ -73,7 +73,7 @@ const int PATTERN[39][5] = {
         {28,29,30,30,30},
         {29,30,30,30,30},
         {30,30,30,30,30},
-        {30,30,30,30,30}, // 30
+        {30,30,30,30,30}, // 30->30 엄한곳 가지 말고 고정.
         {1,2,3,4,5}, // 'A' ~ 'D', 'a'~'d' 스타트
         {1,2,3,4,5},// 'A' ~ 'D', 'a'~'d' 스타트
         {1,2,3,4,5},// 'A' ~ 'D', 'a'~'d' 스타트
@@ -111,9 +111,6 @@ struct Horse{
 } horse[128];
 
 void init(){
-    for(int point = 0; point <= 38; point++){
-        State[point].clear();
-    }
     horse['A'].init('A');
     horse['B'].init('B');
     horse['C'].init('C');
@@ -276,7 +273,10 @@ int main() {
 
         for(char name = 'A'; name <= 'D'; name++){
             int nowPoint = horse[name].point;
-            if(nowPoint >= 30 ) continue;
+            if(nowPoint >= 30 ) {
+                State[nowPoint].pop_back(); // 초기화 대비하여 뽑아만준다
+                continue;
+            }
             if(DEBUG){
                 printf("%c is in point %2d! ", name, nowPoint);
             }
@@ -287,7 +287,10 @@ int main() {
         }
         for(char name = 'a'; name <= 'd'; name++){
             int nowPoint = horse[name].point;
-            if(nowPoint >= 30 ) continue;
+            if(nowPoint >= 30 ) {
+                State[nowPoint].pop_back(); // 초기화 대비하여 뽑아만준다
+                continue;
+            }
             if(DEBUG){
                 printf("%c is in point %2d! ", name, nowPoint);
             }
